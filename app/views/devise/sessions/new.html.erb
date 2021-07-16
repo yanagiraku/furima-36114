@@ -1,4 +1,4 @@
-<%= render "shared/second-header"%>
+<%= render "devise/shared/second-header"%>
 
 <%= form_with class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
@@ -26,9 +26,9 @@
     <%= f.password_field :encrypted_password, class:"input-default", id:"password", placeholder:"" %>
   </div>
   <div class='login-btn'>
-    <%= f.submit "ログイン" ,class:"login-red-btn" %>
+    <%= f.submit "ログイン" , class:"login-red-btn" %>
   </div>
 </div>
 <% end %>
 
-<%= render "shared/second-footer"%>
+<%= render "devise/shared/second-footer"%>
