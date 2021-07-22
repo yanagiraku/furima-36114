@@ -22,9 +22,9 @@ class Item < ApplicationRecord
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
-  belongs_to :status
-  belongs_to :burden
-  belongs_to :delivery
-  belongs_to :day_delivery
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :burden
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :day_delivery
 end
