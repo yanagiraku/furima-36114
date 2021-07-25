@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
-
+    @purchase_residence = PurchaseResidence.new
   end
+
 
   def new
     @item = Item.new
@@ -25,6 +26,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.purchase.present?  
+      redirect_to items_path
+    end
   end
 
   def update
@@ -59,7 +63,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 
 
 end

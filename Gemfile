@@ -61,4 +61,9 @@ gem 'devise'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
+<<<<<<< Updated upstream
 gem 'pry-rails'
+=======
+gem 'pry-rails'
+gem 'payjp'
+>>>>>>> Stashed changes
