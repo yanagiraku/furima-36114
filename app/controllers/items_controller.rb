@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def redirect_index
-    if item.purchase.present?
+    if @item.purchase.present?
       redirect_to items_path
     end
   end

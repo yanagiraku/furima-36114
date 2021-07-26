@@ -95,6 +95,12 @@ RSpec.describe PurchaseResidence, type: :model do
         expect(@purchase_residence.errors.full_messages).to include("Phone number is invalid")
       end
 
+      it "phone_numberが英数混合では登録できないこと" do
+        @purchase_residence.phone_number = "12345abcde"
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("Phone number is invalid")
+      end
+
 
       it "tokenが空では登録できない" do
         @purchase_residence.token = nil
