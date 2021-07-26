@@ -83,11 +83,18 @@ RSpec.describe PurchaseResidence, type: :model do
         expect(@purchase_residence.errors.full_messages).to include("Phone number is invalid")
       end
 
-      it "phone_numberは10桁以上11桁以下でなければ登録できない" do
-        @purchase_residence.phone_number = 123456789
+      it "phone_numberは10桁以上11桁以下でなければ登録できない（10桁未満では登録できない）" do
+        @purchase_residence.phone_number = "123456789"
         @purchase_residence.valid?
         expect(@purchase_residence.errors.full_messages).to include("Phone number is invalid")
       end
+
+      it "phone_numberは10桁以上11桁以下でなければ登録できない（12桁以上では登録できない）" do
+        @purchase_residence.phone_number = "012345678901"
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("Phone number is invalid")
+      end
+
 
       it "tokenが空では登録できない" do
         @purchase_residence.token = nil
