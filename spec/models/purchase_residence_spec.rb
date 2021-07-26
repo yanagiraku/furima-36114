@@ -14,9 +14,27 @@ RSpec.describe PurchaseResidence, type: :model do
         expect(@purchase_residence).to be_valid
       end
 
+      it "building_nameが空でも登録できる" do
+        @purchase_residence.building_name = ""
+        expect(@purchase_residence).to be_valid
+      end
+
       
     end
     context "商品購入ができない" do
+
+      it "user_idが空だと登録できない" do
+        @purchase_residence.user_id = nil
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idが空だと登録できない" do
+        @purchase_residence.item_id = nil
+        @purchase_residence.valid?
+        expect(@purchase_residence.errors.full_messages).to include("Item can't be blank")
+      end
+
       it "postal_codeが空では登録できない" do
         @purchase_residence.postal_code = ""
         @purchase_residence.valid?

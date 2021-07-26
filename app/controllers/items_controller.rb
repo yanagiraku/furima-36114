@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :redirect_index, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
-    @purchase_residence = PurchaseResidence.new
   end
 
 
@@ -26,9 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.purchase.present?  
-      redirect_to items_path
-    end
   end
 
   def update
@@ -64,5 +61,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-
+  def redirect_index
+    if item.purchase.present?
+      redirect_to items_path
+    end
+  end
 end

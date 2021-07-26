@@ -140,11 +140,8 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
-<<<<<<< Updated upstream
-=======
     payjp (0.0.7)
       rest-client (~> 2.0)
->>>>>>> Stashed changes
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -310,10 +307,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   mysql2 (>= 0.4.4)
-<<<<<<< Updated upstream
-=======
   payjp
->>>>>>> Stashed changes
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
