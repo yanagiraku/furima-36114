@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_072408) do
+ActiveRecord::Schema.define(version: 2021_07_26_061932) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_07_22_072408) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "item_id"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_purchases_on_item_id"
@@ -58,13 +58,13 @@ ActiveRecord::Schema.define(version: 2021_07_22_072408) do
   end
 
   create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postal_code"
-    t.integer "delivery_id"
-    t.string "municipality"
-    t.string "address"
+    t.string "postal_code", null: false
+    t.integer "delivery_id", null: false
+    t.string "municipality", null: false
+    t.string "address", null: false
     t.string "building_name"
-    t.string "phone_number"
-    t.bigint "purchase_id"
+    t.string "phone_number", null: false
+    t.bigint "purchase_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purchase_id"], name: "index_residences_on_purchase_id"
